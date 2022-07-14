@@ -7,12 +7,14 @@ export default function Login() {
   return (
     <div>
       <header>
-        <div><h1>Project NodeJs + ReactJs</h1></div>
+        <div><h1><a href="/">Project NodeJs + ReactJs</a></h1></div>
         <div>
           <input placeholder='Email' className='input-home'/>
           <input placeholder='Password' className='input-home'/>
-          <button>Login</button>
         </div>
+          <button>Login</button>
+          <h1>ou</h1>
+          <button>Register</button>
       </header>
       <div className='container-body'>
         <div className='container-body-initial'>
