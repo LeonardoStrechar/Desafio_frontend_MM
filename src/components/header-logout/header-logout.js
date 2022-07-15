@@ -1,9 +1,11 @@
+import FunctionLogout from "../../functions/function-delete";
+
 export default function HeaderLogout (){
     return (
         <div>
             <header>
-                <h1>Project NodeJs + ReactJs</h1>
-                <button>Sair</button>
+            <div><h1><a href="/">Project NodeJs + ReactJs</a></h1></div>
+                <button onClick={FunctionLogout}>Sair</button>
             </header>
         </div>
     );

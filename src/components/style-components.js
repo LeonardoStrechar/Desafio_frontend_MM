@@ -1,19 +1,17 @@
 import styled from "styled-components";
 
-export const CardStyle = styled.div`
-	background-color: white;
-    width: 450px;
-    height: 150px;
-    border: none;
-    border-radius: 10px;
-`;
-
 export const CardMenuStyle = styled.div`
 	background-color: white;
     position: relative;
-    margin-top: 40px;
-    width: 530px;
-    height: 300px;
     border: none;
     border-radius: 10px;
+    display: flex;
+`;
+
+export const InfoRequest = styled.div`
+	position: relative;
+	top: -58px;
+	width: 100%;
+	text-align: start;
+	font-weight: bolder;
 `;

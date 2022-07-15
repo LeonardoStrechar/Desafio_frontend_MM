@@ -1,31 +1,51 @@
+import axios from "axios";
 import imgHome from "../img/img-home.svg"
-import { CardStyle } from '../components/style-components';
 import Footer from "../components/footer/footer";
-//import Card from './components/card/card';
+import { useState } from "react";
+import { bake_cookie } from "sfcookies";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+
+  const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const navigate = useNavigate();
+
+	function Login() {
+		axios.post("http://localhost:3001/login", {
+			email: email,
+      password: password,
+		})
+		.then((response) => {
+			bake_cookie("authorization", response.data.token);
+			navigate("/home");
+		})
+		.catch(() => {
+			alert("Não foi possivel realizar seu Login, email ou senha incorreto!");
+			window.location.reload(false);
+		});
+	}
+
   return (
     <div>
       <header>
         <div><h1><a href="/">Project NodeJs + ReactJs</a></h1></div>
-        <div>
-          <input placeholder='Email' className='input-home'/>
-          <input placeholder='Password' className='input-home'/>
-        </div>
-          <button>Login</button>
-          <h1>ou</h1>
-          <button>Register</button>
+        <button><a className="text-design-a" href="/register">Cadastre-se</a></button>
       </header>
       <div className='container-body'>
         <div className='container-body-initial'>
           <h1>Seja bem-vindo</h1>
-          <div className='img-home'><img src={imgHome} className="img-home"/></div>
-          <h3><a target="_blank" className='motivational-phrase' href='https://www.pensador.com/frase/MjAyMTg3MQ/'>"Faça o teu melhor, na condição que você tem, enquanto você não tem condições melhores, para fazer melhor ainda!"</a></h3>
+          <div className='img-home'><img alt="img-home" src={imgHome} className="img-home"/></div>
+          <h3><a target="_blank" rel="noreferrer" className='motivational-phrase' href='https://www.pensador.com/frase/MjAyMTg3MQ/'>"Faça o teu melhor, na condição que você tem, enquanto você não tem condições melhores, para fazer melhor ainda!"</a></h3>
         </div>
         <div className='container-body-card'>
-          <CardStyle className='card-1'/>
-          <CardStyle className='card-2'/>
-          <CardStyle className='card-3'/>
+          <div className="Container-body-register">
+            <h1>Realize seu login!</h1>
+            <input onChange={(e) => setEmail(e.target.value)} required placeholder="Email" className="input-home" type="email"/>
+            <input onChange={(e) => setPassword(e.target.value)} required placeholder="Password" className="input-home" type="password"/>
+            <button onClick={Login}>Entrar</button>
+          </div>
         </div>
       </div>
       <Footer/>

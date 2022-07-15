@@ -41,7 +41,8 @@ h3 {
   font-size: 15px;
   font-weight: 100;
 }
-a{
+
+a {
   text-decoration: none;
   color: white;
 }
@@ -53,7 +54,8 @@ button {
   height: 40px;
   font-size: 21px;
   cursor: pointer;
-  margin-top: 5px;  
+  margin-top: 5px;
+  min-width: 150px;
 }
 
 .input-home {
@@ -88,7 +90,9 @@ button {
   justify-content: space-evenly;
 }
 
-.Container-body-register{
+.Container-body-register {
+  position: relative;
+  top: 50px;
   display: grid;
   height: 240px;
   border: solid;
@@ -97,19 +101,26 @@ button {
   border-color: white;
 }
 
-.card-1 {
-  position: relative;
-  left: -50px;
+.card {
+  background-color: white;
+  display: grid;
+  overflow-y: scroll;
+  width: 400px;
+  height: 200px;
+  border-radius: 20px;
+  padding: 30px 20px 20px 20px;
 }
 
-.card-2 {
+.divStyle {
   position: relative;
+  display: flex;
 }
 
-.card-3 {
-  position: relative;
-  left: 50px;
+.container-home-card-label {
+  display: grid;
+  justify-content: start;
 }
+
 
 .img-home {
   position: relative;
@@ -135,9 +146,14 @@ button {
   }
 }
 
+.text-design-a {
+  color: black;
+}
+
 .container-home-card {
   position: relative;
-  
+  display: flex;
+  justify-content: space-between;
 }
 
 .container-home-button {

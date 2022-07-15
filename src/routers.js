@@ -1,33 +1,25 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-// import { read_cookie } from "sfcookies";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Register from "./pages/register";
-
-// function useAuth() {
-// 	const token = read_cookie("authorization");
-// 	if( token.length <= 0){
-// 		return false;	
-// 	} else {
-// 		return true;
-// 	}
-// };
-
-// function PrivateRoute({ children }) {
-// 	const auth = useAuth();
-//     return auth ? children : <Navigate to="/" /> ;
-// };
+import PrivateRoute from "./functions/function-private-route";
 
 export default function Rotas() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				
+				{/* puiblic route */}
 				<Route path="/" element={<Login/>} />
 				<Route path="/register" element={<Register/>} />
-                <Route path="/home" element={<Home/>} />
+
+				{/* private route */}
+                <Route path="/home" element={
+					<PrivateRoute>
+						<Home/>
+					</PrivateRoute>
+				} />
 			</Routes>
 		</BrowserRouter>
 	);
