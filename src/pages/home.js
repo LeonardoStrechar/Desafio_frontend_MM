@@ -3,13 +3,13 @@ import Footer from "../components/footer/footer";
 import React, { useEffect, useState } from "react";
 import HeaderLogout from "../components/header-logout/header-logout";
 import { read_cookie } from "sfcookies";
-import CardThreeEntrypoints from "../components/card/card-3-entrypoints";
+import Card from "../components/card/card";
 
 export default function Home(){
 
-    const [users, SetUsers] = useState([]);
-    const [courses, SetCourses] = useState([]);
-    const [coursesModulesContents, SetCoursesModulesContents] = useState([]);
+    const [Sql1, SetSql1] = useState([]);
+    const [Sql2, SetSql2] = useState([]);
+    const [Sql3, SetSql3] = useState([]);
     const [sql4, SetSql4] = useState([]);
     const [sql5, SetSql5] = useState([]);
     console.log(sql5)
@@ -23,7 +23,7 @@ export default function Home(){
 			}
 		})
 		.then((response) => {
-			SetUsers(response.data);
+			SetSql1(response.data);
 		}).catch(() => {
 			alert("Erro ao buscar os dados.")
 		});
@@ -38,7 +38,7 @@ export default function Home(){
 			}
 		})
 		.then((response) => {
-			SetCourses(response.data);
+			SetSql2(response.data);
 		}).catch(() => {
 			alert("Erro ao buscar os dados.")
 		});
@@ -53,7 +53,7 @@ export default function Home(){
 			}
 		})
 		.then((response) => {
-			SetCoursesModulesContents(response.data);
+			SetSql3(response.data);
 		}).catch(() => {
 			alert("Erro ao buscar os dados.")
 		});
@@ -97,24 +97,24 @@ export default function Home(){
                 <div>
                     <h1 className="container-home-card-label">Usuarios com mais cursos</h1>
                     <div className="card">
-                        {users?.map((info) => (
-                            <CardThreeEntrypoints 
+                        {Sql1?.map((info) => (
+                            <Card 
                                 key={info.id} 
                                 pointOne={info.name} 
-                                pointTwo={info.email} 
-                                pointThree={info._count.Course}/>
+                                pointTwo={info._count.Course}
+                            />
                         ))}
                     </div>
                 </div>
                 <div>
                     <h1 className="container-home-card-label">Cursos com mais conteúdos</h1>
                     <div className="card">
-                        {courses?.map((info) => (
-                            <CardThreeEntrypoints 
+                        {Sql2?.map((info) => (
+                            <Card
                                 key={info.id} 
                                 pointOne={info.title} 
                                 pointTwo={info.contents} 
-                                />
+                            />
                         ))}
                     </div>
                 </div>
@@ -124,12 +124,13 @@ export default function Home(){
                 <div>
                     <h1 className="container-home-card-label">Todos os cursos, total de módulos e cursos</h1>
                     <div className="card">
-                        {coursesModulesContents?.map((info) => (
-                            <CardThreeEntrypoints 
-                            key={info.id} 
-                            pointOne={info.title} 
-                            pointTwo={info.modules} 
-                            pointThree={info.contents}/>
+                        {Sql3?.map((info) => (
+                            <Card 
+                                key={info.id} 
+                                pointOne={info.title} 
+                                pointTwo={info.modules} 
+                                pointThree={info.contents}
+                            />
                         ))}
                     </div>
                 </div>
@@ -138,10 +139,10 @@ export default function Home(){
                     <h1 className="container-home-card-label">Todos os conteudos com nome do curso</h1>
                     <div className="card">
                         {sql4?.map((info) => (
-                            <CardThreeEntrypoints 
-                            key={info.id} 
-                            pointOne={info.content} 
-                            pointTwo={info.Module.Course.title} 
+                            <Card
+                                key={info.id} 
+                                pointOne={info.content} 
+                                pointTwo={info.Module.Course.title} 
                             />
                         ))}
                     </div>
@@ -151,7 +152,7 @@ export default function Home(){
                 <h1 className="container-home-card-label">Alunos que assistiram a aula do conteudo ID=2</h1>
                     <div className="card">
                         {sql5?.map((info) => (
-                            <CardThreeEntrypoints 
+                            <Card
                             key={info.id} 
                             pointOne={info.name}
                             />

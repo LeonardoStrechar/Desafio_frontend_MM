@@ -102,22 +102,31 @@ button {
 }
 
 .card {
+  position: relative;
   background-color: white;
   display: grid;
-  overflow-y: scroll;
   width: 400px;
   height: 200px;
-  border-radius: 20px;
-  padding: 30px 20px 20px 20px;
+  border-radius: 10px;
+  text-align: start;
+  overflow-y: scroll;
 }
 
 .divStyle {
   position: relative;
   display: flex;
+  top: 70px;
+  margin-left: 20px;
+}
+
+.infoRequest{
+  width: 400px;
+  max-height: 20px;
 }
 
 .container-home-card-label {
   display: grid;
+  position: relative;
   justify-content: start;
 }
 
