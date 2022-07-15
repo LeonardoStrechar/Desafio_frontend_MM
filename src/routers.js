@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import PrivateRoute from "./functions/function-private-route";
+import EditContent from "./pages/crud-content";
 
 export default function Rotas() {
 	return (
@@ -18,6 +19,12 @@ export default function Rotas() {
                 <Route path="/home" element={
 					<PrivateRoute>
 						<Home/>
+					</PrivateRoute>
+				} />
+
+				<Route path="/Edit/Content" element={
+					<PrivateRoute>
+						<EditContent/>
 					</PrivateRoute>
 				} />
 			</Routes>

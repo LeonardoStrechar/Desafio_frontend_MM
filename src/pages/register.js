@@ -39,9 +39,9 @@ export default function Register() {
         <div className='container-body-card'>
             <div className="Container-body-register">
                 <h1>Realize seu registro!</h1>
-                <input onChange={(e) => setName(e.target.value)} placeholder="Name" className="input-home" type="text"/>
-                <input onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="input-home" type="email"/>
-                <input onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="input-home" type="password"/>
+                <input onChange={(e) => setName(e.target.value)} placeholder="Name" type="text"/>
+                <input onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email"/>
+                <input onChange={(e) => setPassword(e.target.value)} placeholder="Password"  type="password"/>
                 <button onClick={Register}>Cadastrar-se</button>
                 <h3><a href="/">voltar para Login</a></h3>
             </div>

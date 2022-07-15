@@ -42,8 +42,8 @@ export default function Login() {
         <div className='container-body-card'>
           <div className="Container-body-register">
             <h1>Realize seu login!</h1>
-            <input onChange={(e) => setEmail(e.target.value)} required placeholder="Email" className="input-home" type="email"/>
-            <input onChange={(e) => setPassword(e.target.value)} required placeholder="Password" className="input-home" type="password"/>
+            <input onChange={(e) => setEmail(e.target.value)} required placeholder="Email" type="email"/>
+            <input onChange={(e) => setPassword(e.target.value)} required placeholder="Password" type="password"/>
             <button onClick={Login}>Entrar</button>
           </div>
         </div>

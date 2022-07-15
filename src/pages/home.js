@@ -12,7 +12,6 @@ export default function Home(){
     const [Sql3, SetSql3] = useState([]);
     const [sql4, SetSql4] = useState([]);
     const [sql5, SetSql5] = useState([]);
-    console.log(sql5)
 
 //SQL-01 ==> Usuarios que possuem mais cursos
     useEffect(() => {
