@@ -101,6 +101,20 @@ input {
   border-color: white;
 }
 
+.container-home-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-black {
+  color: black;
+}
+
+.container-home-button-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
 .card {
   position: relative;
   background-color: white;
@@ -119,7 +133,7 @@ input {
   margin-left: 20px;
 }
 
-.infoRequest{
+.infoRequest {
   width: 400px;
   max-height: 20px;
 }
@@ -175,7 +189,8 @@ input {
   position: relative;
   justify-items: start;
 }
-.container-crud{
+
+.container-crud {
   position: relative;
   display: flex;
   width: 100%;
@@ -183,7 +198,7 @@ input {
   margin-top: 30px;
 }
 
-.container-crud-list{
+.container-crud-list {
   position: relative;
   display: grid;
   border: solid 1px;
@@ -197,16 +212,32 @@ input {
   padding: 5px;
 }
 
-.container-crud-create{
+.container-crud-create {
   position: relative;
   display: grid;
   border: solid 1px;
   border-radius: 10px;
   border-color: white;
-  height: 500px;
+  height: 600px;
   width: 350px;
   background-color: rgba(146, 139, 139, 0.137);
   color: white;
   justify-content: center;
   padding: 5px;
+}
+
+
+.container-crud-delete {
+  position: relative;
+  display: grid;
+  border: solid 1px;
+  border-radius: 10px;
+  border-color: white;
+  height: 300px;
+  width: 350px;
+  background-color: rgba(146, 139, 139, 0.137);
+  color: white;
+  justify-content: center;
+  padding: 5px;
+
 }

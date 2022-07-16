@@ -22,7 +22,7 @@ export default function Rotas() {
 					</PrivateRoute>
 				} />
 
-				<Route path="/Edit/Content" element={
+				<Route path="/content" element={
 					<PrivateRoute>
 						<EditContent/>
 					</PrivateRoute>

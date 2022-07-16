@@ -91,7 +91,15 @@ export default function Home(){
     return(
         <div>
             <HeaderLogout/>
-            <div className="title"><h1>Menu principal</h1></div>
+            <div className="container-home-header">
+                <div className="title"><h1>Menu principal</h1></div>
+                <div className="container-home-button-flex">
+                    <button className="container-home-button"><a className="text-black" href="/Content">Conteudos</a></button>
+                    <button className="container-home-button"><a className="text-black" href="/Content">Modulos</a></button>
+                    <button className="container-home-button"><a className="text-black" href="/Content">Cursos</a></button>
+                    <button className="container-home-button"><a className="text-black" href="/Content">Usuarios</a></button>
+                </div>
+            </div>
             <div className="container-home-card">
                 <div>
                     <h1 className="container-home-card-label">Usuarios com mais cursos</h1>
@@ -121,7 +129,7 @@ export default function Home(){
 
             <div className="container-home-card">
                 <div>
-                    <h1 className="container-home-card-label">Todos os cursos, total de módulos e cursos</h1>
+                    <h1 className="container-home-card-label">Todos os cursos, total de módulos e conteudos</h1>
                     <div className="card">
                         {Sql3?.map((info) => (
                             <Card 
@@ -140,7 +148,7 @@ export default function Home(){
                         {sql4?.map((info) => (
                             <Card
                                 key={info.id} 
-                                pointOne={info.content} 
+                                pointOne={info.title} 
                                 pointTwo={info.Module.Course.title} 
                             />
                         ))}
@@ -159,7 +167,6 @@ export default function Home(){
                     </div>
                 </div>
             <Footer/>
-            <button className="container-home-button">editar</button>
         </div>
     )
 }
