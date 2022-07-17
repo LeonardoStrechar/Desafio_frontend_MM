@@ -12,11 +12,11 @@ export  default function EditContent (){
     const [Title, SetTitle] = useState("");
     const [Content, SetContent] = useState("");
     const [ModuleId, SetModuleId] = useState("");
-    const [IdAlter, SetIdAlter] = useState([]);
-    const [IdDelete, SetIdDelete] = useState([]);
-    const [TitleAlter, SetTitleAlter] = useState([]);
-    const [ContentAlter, SetContentAlter] = useState([]);
-    const [ModuleIdAlter, SetModuleIdAlter] = useState([])
+    const [IdDelete, SetIdDelete] = useState("");
+    const [IdAlter, SetIdAlter] = useState("");
+    const [TitleAlter, SetTitleAlter] = useState("");
+    const [ContentAlter, SetContentAlter] = useState("");
+    const [ModuleIdAlter, SetModuleIdAlter] = useState("");
 
     useEffect(() => {
 		const authorization = read_cookie("authorization");
@@ -49,30 +49,37 @@ export  default function EditContent (){
             alert("Não foi possivel realizar seu cadastroa!");
         });
       }
-    
-    function AlterContent(){
-        axios.put(`http://localhost:3001/contents/${IdAlter}`, {
+
+    async function AlterContent(){
+        const authorization = read_cookie("authorization");
+        console.log(ModuleIdAlter)
+        await axios.put(`http://localhost:3001/contents/${IdAlter}`, {
             title: TitleAlter,
             content: ContentAlter,
-            moduleId: ModuleIdAlter,
+            moduleId: ModuleIdAlter
+        }, {
+            headers: {
+                'authorization': `Bearer ${authorization}`
+            }
         })
         .then((response) => {
-            Navigate("/");
-        }).catch(() => {
+            this.setState({ status: response.status })
+        })
+        .catch(() => {
             alert("Não foi possivel realizar sua aalteração!");
         })
     }
 
-    function DeleteContent(){
+    // delete funcionando
+    async function DeleteContent(){
         const authorization = read_cookie("authorization");
-            axios.delete(`http://localhost:3001/contents/${IdDelete}`, {
-			    headers: {
-				    'authorization': `Bearer ${authorization}` 
-			    }
-		    })
-        .then(() => {
-            Navigate("/content");
-        }).catch(() => {
+        await axios.delete(`http://localhost:3001/contents/${IdDelete}`, {
+            headers: {
+                'authorization': `Bearer ${authorization}` 
+            }
+        })
+        .then(response => window.location.reload())
+        .catch(() => {
             alert("Não foi possivel deletar!")
         });
     }
@@ -104,10 +111,10 @@ export  default function EditContent (){
                     </div>
                     <div>
                         <h1>Alterar</h1>
-                        <input onChange={(e) => SetIdAlter(e.target.value)} placeholder="Id do Conteúdo" />
-                        <input onChange={(e) => SetTitleAlter(e.target.value)} placeholder="Título" />
-                        <input onChange={(e) => SetContentAlter(e.target.value)} placeholder="Conteúdo"/>
-                        <input onChange={(e) => SetModuleIdAlter(e.target.value)} placeholder="ID do Módulo"/>
+                        <input onChange={(e) => SetIdAlter(e.target.value)} placeholder="Id do Conteúdo" type="number"/>
+                        <input onChange={(e) => SetTitleAlter(e.target.value)} placeholder="Título" type="text" />
+                        <input onChange={(e) => SetContentAlter(e.target.value)} placeholder="Conteúdo" type="text" />
+                        <input onChange={(e) => SetModuleIdAlter(e.target.value)} placeholder="ID do Módulo" type="number" />
                         <button onClick={AlterContent}>Alterar</button>
                     </div>
                 </div>
