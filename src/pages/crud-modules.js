@@ -18,7 +18,7 @@ export default function CrudModules() {
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get("http://localhost:3001/modules", {
+			.get(`${process.env.URL_BACKEND}/modules`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -35,7 +35,7 @@ export default function CrudModules() {
 		const authorization = read_cookie("authorization");
 		axios
 			.post(
-				"http://localhost:3001/modules",
+				`${process.env.URL_BACKEND}/modules`,
 				{
 					title: Title,
 					description: Description,
@@ -57,7 +57,7 @@ export default function CrudModules() {
 		const authorization = read_cookie("authorization");
 		await axios
 			.put(
-				`http://localhost:3001/modules/${IdAlter}`,
+				`${process.env.URL_BACKEND}/modules/${IdAlter}`,
 				{
 					title: TitleAlter,
 					description: DescriptionAlter,
@@ -78,7 +78,7 @@ export default function CrudModules() {
 	async function DeleteModules() {
 		const authorization = read_cookie("authorization");
 		await axios
-			.delete(`http://localhost:3001/modules/${IdDelete}`, {
+			.delete(`${process.env.URL_BACKEND}/modules/${IdDelete}`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},

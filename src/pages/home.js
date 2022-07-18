@@ -19,7 +19,7 @@ export default function Home() {
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get("http://localhost:3001/report/1", {
+			.get(`${process.env.URL_BACKEND}/report/1`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -36,7 +36,7 @@ export default function Home() {
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get("http://localhost:3001/report/2", {
+			.get(`${process.env.URL_BACKEND}/report/2`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -53,7 +53,7 @@ export default function Home() {
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get("http://localhost:3001/report/3", {
+			.get(`${process.env.URL_BACKEND}/report/3`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -70,7 +70,7 @@ export default function Home() {
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get("http://localhost:3001/report/4", {
+			.get(`${process.env.URL_BACKEND}/report/4`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -87,7 +87,7 @@ export default function Home() {
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get("http://localhost:3001/report/5", {
+			.get(`${process.env.URL_BACKEND}/report/5`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -104,7 +104,7 @@ export default function Home() {
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get("http://localhost:3001/contents", {
+			.get(`${process.env.URL_BACKEND}/contents`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -122,7 +122,7 @@ export default function Home() {
 		const authorization = read_cookie("authorization");
 		await axios
 			.post(
-				`http://localhost:3001/watch/${id}`,
+				`${process.env.URL_BACKEND}/watch/${id}`,
 				{},
 				{
 					headers: {
@@ -138,7 +138,7 @@ export default function Home() {
 		const authorization = read_cookie("authorization");
 		await axios
 			.post(
-				`http://localhost:3001/unwatch/${id}`,
+				`${process.env.URL_BACKEND}/unwatch/${id}`,
 				{},
 				{
 					headers: {

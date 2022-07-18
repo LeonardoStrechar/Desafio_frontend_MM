@@ -12,7 +12,7 @@ export default function Register() {
   const navigate = useNavigate();
 
   function Register(){
-    axios.post("http://localhost:3001/register", {
+    axios.post(`${process.env.URL_BACKEND}/register`, {
       name: name,
       email: email,
       password: password,

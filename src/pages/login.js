@@ -13,7 +13,7 @@ export default function Login() {
 
 	function Login() {
 		axios
-			.post("http://localhost:3001/login", {
+			.post(`${process.env.URL_BACKEND}/login`, {
 				email: email,
 				password: password,
 			})
