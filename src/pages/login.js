@@ -13,7 +13,7 @@ export default function Login() {
 
 	function Login() {
 		axios
-			.post(`${process.env.URL_BACKEND}/login`, {
+			.post(`${process.env.REACT_APP_URL_BACKEND}/login`, {
 				email: email,
 				password: password,
 			})

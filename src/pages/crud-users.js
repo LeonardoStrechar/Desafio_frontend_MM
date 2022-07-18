@@ -17,7 +17,7 @@ export default function CrudUsers() {
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get(`${process.env.URL_BACKEND}/users`, {
+			.get(`${process.env.REACT_APP_URL_BACKEND}/users`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -34,7 +34,7 @@ export default function CrudUsers() {
 		const authorization = read_cookie("authorization");
 		axios
 			.post(
-				`${process.env.URL_BACKEND}/register`,
+				`${process.env.REACT_APP_URL_BACKEND}/register`,
 				{
 					name: Name,
 					email: Email,
@@ -56,7 +56,7 @@ export default function CrudUsers() {
 		const authorization = read_cookie("authorization");
 		await axios
 			.put(
-				`${process.env.URL_BACKEND}/users/${IdUserAlter}`,
+				`${process.env.REACT_APP_URL_BACKEND}/users/${IdUserAlter}`,
 				{
 					name: NameAlter,
 					password: AlterPassword,
@@ -76,7 +76,7 @@ export default function CrudUsers() {
 	async function DeleteModules() {
 		const authorization = read_cookie("authorization");
 		await axios
-			.delete(`${process.env.URL_BACKEND}/users/${IdDelete}`, {
+			.delete(`${process.env.REACT_APP_URL_BACKEND}/users/${IdDelete}`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},

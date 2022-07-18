@@ -12,7 +12,7 @@ export default function Register() {
   const navigate = useNavigate();
 
   function Register(){
-    axios.post(`${process.env.URL_BACKEND}/register`, {
+    axios.post(`${process.env.REACT_APP_URL_BACKEND}/register`, {
       name: name,
       email: email,
       password: password,

@@ -19,7 +19,7 @@ export default function Home() {
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get(`${process.env.URL_BACKEND}/report/1`, {
+			.get(`${process.env.REACT_APP_URL_BACKEND}/report/1`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -32,11 +32,11 @@ export default function Home() {
 			});
 	}, []);
 
-	//SQL-03 ==> Curso com mais conteudos
+	//SQL-02 ==> Curso com mais conteudos
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get(`${process.env.URL_BACKEND}/report/2`, {
+			.get(`${process.env.REACT_APP_URL_BACKEND}/report/2`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -49,11 +49,11 @@ export default function Home() {
 			});
 	}, []);
 
-	//SQL-03 ==> todos os cursos, com total de modulos e conteudos
+	//SQL-02 ==> todos os cursos, com total de modulos e conteudos
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get(`${process.env.URL_BACKEND}/report/3`, {
+			.get(`${process.env.REACT_APP_URL_BACKEND}/report/3`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -70,7 +70,7 @@ export default function Home() {
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get(`${process.env.URL_BACKEND}/report/4`, {
+			.get(`${process.env.REACT_APP_URL_BACKEND}/report/4`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -87,7 +87,7 @@ export default function Home() {
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get(`${process.env.URL_BACKEND}/report/5`, {
+			.get(`${process.env.REACT_APP_URL_BACKEND}/report/5`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -104,7 +104,7 @@ export default function Home() {
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get(`${process.env.URL_BACKEND}/contents`, {
+			.get(`${process.env.REACT_APP_URL_BACKEND}/contents`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -122,7 +122,7 @@ export default function Home() {
 		const authorization = read_cookie("authorization");
 		await axios
 			.post(
-				`${process.env.URL_BACKEND}/watch/${id}`,
+				`${process.env.REACT_APP_URL_BACKEND}/watch/${id}`,
 				{},
 				{
 					headers: {
@@ -138,7 +138,7 @@ export default function Home() {
 		const authorization = read_cookie("authorization");
 		await axios
 			.post(
-				`${process.env.URL_BACKEND}/unwatch/${id}`,
+				`${process.env.REACT_APP_URL_BACKEND}/unwatch/${id}`,
 				{},
 				{
 					headers: {
