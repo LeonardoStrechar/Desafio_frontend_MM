@@ -4,42 +4,39 @@ import { read_cookie } from "sfcookies";
 import Card from "../components/card/card";
 import HeaderLogout from "../components/header-logout/header-logout";
 
-export default function CrudContent() {
-	const [Contents, SetContents] = useState([]);
+export default function CrudCourses() {
+	const [Courses, SetCourses] = useState([]);
 	const [Title, SetTitle] = useState("");
-	const [Content, SetContent] = useState("");
-	const [ModuleId, SetModuleId] = useState("");
+	const [Description, SetDescription] = useState("");
 	const [IdDelete, SetIdDelete] = useState("");
 	const [IdAlter, SetIdAlter] = useState("");
 	const [TitleAlter, SetTitleAlter] = useState("");
-	const [ContentAlter, SetContentAlter] = useState("");
-	const [ModuleIdAlter, SetModuleIdAlter] = useState("");
+	const [DescriptionAlter, SetDescriptionAlter] = useState("");
 
 	useEffect(() => {
 		const authorization = read_cookie("authorization");
 		axios
-			.get("http://localhost:3001/contents", {
+			.get("http://localhost:3001/courses", {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
 			})
 			.then((response) => {
-				SetContents(response.data);
+				SetCourses(response.data);
 			})
 			.catch(() => {
 				alert("Erro ao buscar os dados.");
 			});
 	}, []);
 
-	function CreateContent() {
+	function CreateCourses() {
 		const authorization = read_cookie("authorization");
 		axios
 			.post(
-				"http://localhost:3001/contents",
+				"http://localhost:3001/courses",
 				{
 					title: Title,
-					content: Content,
-					moduleId: ModuleId,
+					description: Description,
 				},
 				{
 					headers: {
@@ -53,15 +50,14 @@ export default function CrudContent() {
 			});
 	}
 
-	async function AlterContent() {
+	async function AlterCourses() {
 		const authorization = read_cookie("authorization");
 		await axios
 			.put(
-				`http://localhost:3001/contents/${IdAlter}`,
+				`http://localhost:3001/courses/${IdAlter}`,
 				{
 					title: TitleAlter,
-					content: ContentAlter,
-					moduleId: ModuleIdAlter,
+					description: DescriptionAlter,
 				},
 				{
 					headers: {
@@ -75,10 +71,10 @@ export default function CrudContent() {
 			});
 	}
 
-	async function DeleteContent() {
+	async function DeleteCourses() {
 		const authorization = read_cookie("authorization");
 		await axios
-			.delete(`http://localhost:3001/contents/${IdDelete}`, {
+			.delete(`http://localhost:3001/courses/${IdDelete}`, {
 				headers: {
 					authorization: `Bearer ${authorization}`,
 				},
@@ -94,7 +90,7 @@ export default function CrudContent() {
 			<HeaderLogout />
 			<div className="container-home-header">
 				<div className="title">
-					<h1>CRUD de conteúdos</h1>
+					<h1>CRUD de Cursos</h1>
 				</div>
 				<button className="container-home-button">
 					<a className="text-black" href="/home">
@@ -104,7 +100,7 @@ export default function CrudContent() {
 			</div>
 			<div className="container-crud">
 				<div className="container-crud-list">
-					{Contents?.map((info) => (
+					{Courses?.map((info) => (
 						<Card key={info.id} pointOne={info.id} pointTwo={info.title} pointThree={info.content} />
 					))}
 				</div>
@@ -112,34 +108,28 @@ export default function CrudContent() {
 					<div>
 						<h1>Cadastrar</h1>
 						<input onChange={(e) => SetTitle(e.target.value)} placeholder="Título" type="text" />
-						<input onChange={(e) => SetContent(e.target.value)} placeholder="Conteúdo" type="text" />
-						<input onChange={(e) => SetModuleId(e.target.value)} placeholder="ID do Módulo" type="number" />
-						<button type="submit" onClick={CreateContent}>
+						<input onChange={(e) => SetDescription(e.target.value)} placeholder="Descrição" type="text" />
+						<button type="submit" onClick={CreateCourses}>
 							Cadastrar
 						</button>
 					</div>
 					<div>
 						<h1>Alterar</h1>
-						<input
-							onChange={(e) => SetIdAlter(e.target.value)}
-							placeholder="Id do Conteúdo"
-							type="number"
-						/>
+						<input onChange={(e) => SetIdAlter(e.target.value)} placeholder="Id do Curso" type="number" />
 						<input onChange={(e) => SetTitleAlter(e.target.value)} placeholder="Título" type="text" />
-						<input onChange={(e) => SetContentAlter(e.target.value)} placeholder="Conteúdo" type="text" />
 						<input
-							onChange={(e) => SetModuleIdAlter(e.target.value)}
-							placeholder="ID do Módulo"
-							type="number"
+							onChange={(e) => SetDescriptionAlter(e.target.value)}
+							placeholder="Descrição"
+							type="text"
 						/>
-						<button onClick={AlterContent}>Alterar</button>
+						<button onClick={AlterCourses}>Alterar</button>
 					</div>
 				</div>
 				<div className="container-crud-delete">
 					<div>
 						<h1>Deletar</h1>
-						<input onChange={(e) => SetIdDelete(e.target.value)} placeholder="Id do Conteúdo" />
-						<button onClick={DeleteContent}>Deletar</button>
+						<input onChange={(e) => SetIdDelete(e.target.value)} placeholder="Id do Curso" />
+						<button onClick={DeleteCourses}>Deletar</button>
 					</div>
 				</div>
 			</div>

@@ -131,6 +131,25 @@ input {
   display: flex;
   top: 70px;
   margin-left: 20px;
+  align-items: center;
+}
+.divStyle-watch{
+  position: relative;
+  display: flex;
+  top: 20px;
+  margin-left: 20px;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 40px;
+}
+.button-watch{
+  position: relative;
+  background: rgb(88, 86, 86);
+  min-width: 100px;
+  height: 30px;
+  left: 20px;
+  color: white;
+  font-size: 15px;
 }
 
 .infoRequest {
@@ -210,6 +229,10 @@ input {
   color: white;
   text-align: start;
   padding: 5px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 .container-crud-create {
