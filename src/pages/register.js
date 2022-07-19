@@ -18,11 +18,6 @@ export default function Register() {
 					name: name,
 					email: email,
 					password: password,
-				},
-				{
-					headers: {
-						"Access-Control-Allow-Origin": "*",
-					},
 				}
 			)
 			.then((response) => {
