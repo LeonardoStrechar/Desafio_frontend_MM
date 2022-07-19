@@ -1,4 +1,4 @@
-# PROJECT INSTALLATION
+# PROJECT INSTALATION
 
 ## REQUIREMENTS
 
@@ -6,15 +6,15 @@
     - Git
     - NodeJS
 
-### To install, first clone this repository in an empty place on your system, preferably in a folder
+### Choose a location to clone the project.
 
-### Command to clone:
+### Use the command in your terminal
 
-## `git clone https://github.com/LeonardoStrechar/Frontend_React_MM.git`
+## `git clone https://github.com/LeonardoStrechar/Backend-NodeJS-MM.git`
 
-### After carrying out the clone of the project, navigate with your terminal to where the project was cloned.
+### Check if a folder named Backend-NodeJS-MM chosen local was created
 
-### With the terminal in the repository, run the command:
+### if everything is correct run the command in the terminal with the selected folder:
 
 ## `npm install`
 
@@ -22,8 +22,24 @@
 
 ## `.env.example ` -> `.env`
 
-### After the system installs all the dependencies, run the command:
+### Then execute the command:
 
-## `npm start`
+## `docker-compose up`
 
-### if all goes well, your project will run on port 3000 and open a browser window!
+### after docker create the container run the command for the migrations in another terminal:
+
+## `npx prisma migrate reset`
+
+## If everything went well, the project is running on port 3001!
+
+## If there is an error connecting to docker
+
+### run the command and with docker-compose running
+
+## `docker inspect database`
+
+### get the value of "IPAddress"
+
+### and put it in the .env file replacing "172.18.0.3" for new ip
+
+##### DATABASE_URL="postgresql://teste:teste@172.18.0.3:5432/project_node?schema=public"
